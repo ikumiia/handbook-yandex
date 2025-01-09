@@ -4,13 +4,13 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        // Ввод первой строки с числами
+
         String[] dimensions = scanner.nextLine().split(" ");
         int rows = Integer.parseInt(dimensions[0]);
         int cols = Integer.parseInt(dimensions[1]);
         int mines = Integer.parseInt(dimensions[2]);
 
-        // Создание и заполнение поля
+
         char[][] field = new char[rows][cols];
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < cols; j++) {
@@ -18,7 +18,7 @@ public class Main {
             }
         }
 
-        // Размещение мин на поле
+
         for (int k = 0; k < mines; k++) {
             String[] minePosition = scanner.nextLine().split(" ");
             int row = Integer.parseInt(minePosition[0]) - 1;
@@ -26,7 +26,7 @@ public class Main {
             field[row][col] = '*';
         }
 
-        // Подсчет мин в соседних клетках
+
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < cols; j++) {
                 if (field[i][j] != '*') {
@@ -38,7 +38,7 @@ public class Main {
             }
         }
 
-        // Вывод поля
+
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < cols; j++) {
                 System.out.print(field[i][j]);
@@ -50,7 +50,7 @@ public class Main {
         }
     }
 
-    // Метод для подсчета мин в соседних клетках
+
     public static int countAdjacentMines(char[][] field, int row, int col) {
         int count = 0;
         for (int i = -1; i <= 1; i++) {
